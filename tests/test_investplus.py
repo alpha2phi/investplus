@@ -1,5 +1,4 @@
 import unittest
-
 import investplus
 
 
@@ -14,4 +13,5 @@ class TestClass(unittest.TestCase):
         pass
 
     def test_stocks(self):
-        investplus.get_stock_balance_sheet()
+        url = "https://www.investing.com/equities/apple-computer-inc-balance-sheet"
+        balance_sheet = investplus.get_stock_balance_sheet(url)
