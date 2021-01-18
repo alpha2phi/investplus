@@ -16,7 +16,7 @@ setup(
     version="0.0.1",
     author="alpha2phi",
     author_email="alpha2phi@gmail.com",
-    description=("A library to scrap stock data."),
+    description=("A library to scrape stock data."),
     license="BSD",
     keywords="stock scraping",
     url="https://github.com/alpha2phi/investplus",
