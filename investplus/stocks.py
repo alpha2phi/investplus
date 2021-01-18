@@ -1,11 +1,11 @@
 import requests
 import re
 from lxml.html import fromstring
-from .utils import is_float
+from .utils import is_float, http_headers
 
 
 def get_stock_balance_sheet(url):
-    req = requests.get(url, headers=_build_user_agent())
+    req = requests.get(url, headers=http_headers())
     if req.status_code != 200:
         raise ConnectionError(
             "ERR: error " + str(req.status_code) + ", try again later."
@@ -64,14 +64,3 @@ def _extract_balance_sheet(elements, balance_sheet_dates):
             balance_sheet[section][balance_sheet_dates[dt_index]] = float(value)
             dt_index = dt_index + 1
     return balance_sheet
-
-
-def _build_user_agent():
-    user_agent = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3) Gecko/20090305 Firefox/3.1b3 GTB5"
-    return {
-        "User-Agent": user_agent,
-        "X-Requested-With": "XMLHttpRequest",
-        "Accept": "text/html",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Connection": "keep-alive",
-    }

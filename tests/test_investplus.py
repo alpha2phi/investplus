@@ -15,3 +15,5 @@ class TestClass(unittest.TestCase):
     def test_stocks(self):
         url = "https://www.investing.com/equities/apple-computer-inc-balance-sheet"
         balance_sheet = investplus.get_stock_balance_sheet(url)
+        assert balance_sheet is not None
+        print(balance_sheet)
