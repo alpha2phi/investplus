@@ -1,1 +1,1 @@
-from .stocks import get_stock
+from .stocks import get_stock_balance_sheet

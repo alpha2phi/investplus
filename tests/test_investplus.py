@@ -14,4 +14,4 @@ class TestClass(unittest.TestCase):
         pass
 
     def test_stocks(self):
-        investplus.get_stock()
+        investplus.get_stock_balance_sheet()
