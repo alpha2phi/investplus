@@ -1,6 +1,7 @@
 import requests
 import re
 from lxml.html import fromstring
+from parsel import selector
 from .utils import is_float, http_headers
 
 
