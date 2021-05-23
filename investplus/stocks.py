@@ -8,16 +8,16 @@ from .utils import is_float, http_headers
 def get_stock_balance_sheet(url):
     req = requests.get(url, headers=http_headers())
     if req.status_code != 200:
-        raise ConnectionError(
-            "ERR: error " + str(req.status_code) + ", try again later."
-        )
+        raise ConnectionError("ERR: error " + str(req.status_code) +
+                              ", try again later.")
 
     root_ = fromstring(req.text)
     path_ = root_.xpath("//*[@id='rrtable']/table")
     if path_:
         for elements_ in path_:
             balance_sheet_dates = _extract_balance_sheet_dates(elements_)
-            balance_sheet = _extract_balance_sheet(elements_, balance_sheet_dates)
+            balance_sheet = _extract_balance_sheet(elements_,
+                                                   balance_sheet_dates)
             return balance_sheet
 
     raise RuntimeError("ERR: data retrieval error while scraping.")
@@ -62,6 +62,7 @@ def _extract_balance_sheet(elements, balance_sheet_dates):
             balance_sheet[section] = {}
             dt_index = 0
         else:
-            balance_sheet[section][balance_sheet_dates[dt_index]] = float(value)
+            balance_sheet[section][balance_sheet_dates[dt_index]] = float(
+                value)
             dt_index = dt_index + 1
     return balance_sheet

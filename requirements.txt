@@ -5,3 +5,4 @@ pandas
 parsel
 requests
 pytz
+lxml
