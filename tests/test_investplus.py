@@ -3,9 +3,7 @@ import investplus
 
 
 class TestClass(unittest.TestCase):
-
     """Test case docstring."""
-
     def setUp(self):
         pass
 
