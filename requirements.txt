@@ -4,5 +4,6 @@ numpy
 pandas
 parsel
 requests
+requests-html
 pytz
 lxml
