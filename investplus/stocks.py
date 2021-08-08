@@ -1,8 +1,11 @@
-import requests
 import re
+
+import requests
+
 from lxml.html import fromstring
 from parsel import selector
-from .utils import is_float, http_headers
+
+from .utils import http_headers, is_float
 
 
 def get_stock_balance_sheet(url):
